@@ -1,21 +1,23 @@
-
-package com.project.fptechscience.model;
+package com.project.fptechscience.db;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Option {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-    @SerializedName("id")
-    @Expose
+public class OptionObj extends RealmObject {
+
+
+    @PrimaryKey
     private String optionId;
-    @SerializedName("name")
-    @Expose
     private String name;
-    @SerializedName("icon")
-    @Expose
     private String icon;
 
+    public OptionObj() {
+
+
+    }
 
     public String getOptionId() {
         return optionId;

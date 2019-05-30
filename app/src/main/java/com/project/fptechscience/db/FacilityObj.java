@@ -1,22 +1,24 @@
-
-package com.project.fptechscience.model;
+package com.project.fptechscience.db;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.project.fptechscience.model.Option;
 
-import java.util.List;
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-public class Facility  {
+public class FacilityObj extends RealmObject {
 
-    @SerializedName("facility_id")
-    @Expose
+
+    @PrimaryKey
     private String facilityId;
-    @SerializedName("name")
-    @Expose
     private String name;
-    @SerializedName("options")
-    @Expose
-    private List<Option> options = null;
+    private RealmList<OptionObj> options = null;
+
+
+    public FacilityObj() {
+    }
 
     public String getFacilityId() {
         return facilityId;
@@ -34,11 +36,11 @@ public class Facility  {
         this.name = name;
     }
 
-    public List<Option> getOptions() {
+    public RealmList<OptionObj> getOptions() {
         return options;
     }
 
-    public void setOptions(List<Option> options) {
+    public void setOptions(RealmList<OptionObj> options) {
         this.options = options;
     }
 }
